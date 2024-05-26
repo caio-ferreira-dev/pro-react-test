@@ -18,16 +18,21 @@
     padding-right: 10px;
 }
 
-@media only screen and (max-width: 425px) {
-    .searchContainer {
-        width: 250px;
-    }
-}
-
 .searchButton {
     width: 28;
     height: 28;
-    border: none;
-    background-color: transparent;
     padding: auto;
+}
+
+@media only screen and (max-width: 425px) {
+    .searchContainer {
+        width: 250px;
+        min-width: 200px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .searchContainer {
+        width: 200px;
+    }
 }

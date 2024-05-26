@@ -1,12 +1,13 @@
-import styles from "@/styles/components/header.module.css";
-import SearchBar from "./ui/SearchBar";
-import UserMenu from "./ui/UserMenu";
+import styles from "@/styles/components/ui/userMenu.module.css";
 import { useEffect, useState } from "react";
-import CartButton from "./ui/CartButton";
 
-export default function Header() {
+export default function UserMenu() {
     const [isMobile, setIsMobile] = useState<boolean>()
-    
+
+    useEffect(() => {
+
+    }, [])
+
     useEffect(() => {
         const handleResize = () => {
           if (window.innerWidth < 769) {
@@ -23,29 +24,30 @@ export default function Header() {
         };
       }, []);
 
-    function renderMobile() {
+    function renderDesktop() {
         return (
             <>
-                <UserMenu />
-                <SearchBar />
-                <CartButton />
+                <h1>#User</h1>
+                <button className={styles.dropdownButton}>
+                    <img src="dropdown_arrow.png" alt="dropdown arrow" width={40} height={40}/>
+                </button>
             </>
         )
     }
 
-    function renderDesktop() {
+    function renderMobile() {
         return (
             <>
-                <h1 className={styles.projectTitle}>Pro - React Test</h1>
-                <SearchBar />
-                <CartButton />
-                <UserMenu />
+                <button>
+                    <img src="mobile_menu_icon.png" alt="menu icon" width={50} height={50}/>
+                </button>
             </>
         )
     }
+
     return (
-        <header className={styles.headerContainer}>
+        <div className={styles.userMenuContainer}>
             {isMobile ? renderMobile() : renderDesktop()}
-        </header>
+        </div>
     )
 }
