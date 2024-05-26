@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #D8DFE9;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+input:focus {
+    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* D8DFE9 */
