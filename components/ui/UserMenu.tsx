@@ -30,7 +30,7 @@ export default function UserMenu() {
                 <button onClick={e => {setIsMenuOpen(!isMenuOpen)}}>
                     <img className={`${styles.dropdownArrow} ${isMenuOpen ? styles.rotateIcon : ''}`} src="dropdown_arrow.png" alt="dropdown arrow" width={40} height={40}/>
                 </button>
-                <DropdownMenu isOpen={isMenuOpen} />
+                <DropdownMenu isOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
                 
             </>
         )
