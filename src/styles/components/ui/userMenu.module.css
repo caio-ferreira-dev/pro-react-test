@@ -1,7 +1,14 @@
 .userMenuContainer {
     display: flex;
     align-items: center;
-    
+    height: 100%;
     position: relative;
 }
 
+.dropdownArrow {
+    transition: transform 500ms;
+}
+
+.rotateIcon {
+    transform: rotate(180deg);
+}

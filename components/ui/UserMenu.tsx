@@ -1,12 +1,10 @@
 import styles from "@/styles/components/ui/userMenu.module.css";
 import { useEffect, useState } from "react";
+import DropdownMenu from "./DropdownMenu";
 
 export default function UserMenu() {
     const [isMobile, setIsMobile] = useState<boolean>()
-
-    useEffect(() => {
-
-    }, [])
+    const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
 
     useEffect(() => {
         const handleResize = () => {
@@ -28,9 +26,11 @@ export default function UserMenu() {
         return (
             <>
                 <h1>#User</h1>
-                <button className={styles.dropdownButton}>
-                    <img src="dropdown_arrow.png" alt="dropdown arrow" width={40} height={40}/>
+                <button onClick={e => {setIsDropdownOpen(!isDropdownOpen)}}>
+                    <img className={`${styles.dropdownArrow} ${isDropdownOpen ? styles.rotateIcon : ''}`} src="dropdown_arrow.png" alt="dropdown arrow" width={40} height={40}/>
                 </button>
+                <DropdownMenu isOpen={isDropdownOpen} />
+                
             </>
         )
     }

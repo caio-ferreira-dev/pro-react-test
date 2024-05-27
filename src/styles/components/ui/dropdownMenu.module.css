@@ -1,0 +1,51 @@
+.dropdownContainer {
+    width: 160px;
+    height: 100px;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 20px;
+    padding: 15px;
+    font-size: 14px;
+
+    color: black;
+    background-color: white;
+    transition: transform 0.3s ease, opacity 0.1s ease;
+    transform: translateY(-20px);
+}
+
+.hideMenu {
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+.showMenu {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.squareContainer {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, opacity 0.1s ease;
+}
+
+.square {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    transform: rotate(45deg) scale(0.7071); /* Scale down by √2/2 */
+}
