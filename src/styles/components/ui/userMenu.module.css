@@ -12,3 +12,9 @@
 .rotateIcon {
     transform: rotate(180deg);
 }
+
+@media only screen and (max-width: 769px) {
+    .userMenuContainer {
+        position: unset;
+    }
+}

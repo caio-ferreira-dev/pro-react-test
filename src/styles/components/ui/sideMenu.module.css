@@ -1,0 +1,34 @@
+.sideMenuContainer {
+    position: absolute;
+    top: 100px;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 50vw;
+    height: 100vh;
+    padding: 20px;
+
+    background-color: #FFFFFF;
+    color: black;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateX(-20px);
+}
+
+.hideSideMenu {
+    transform: translateX(-20px);
+    opacity: 0;
+}
+
+.showSideMenu {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@media only screen and (max-width: 425px) {
+    .sideMenuContainer {
+        width: 100vw;
+    }
+}
