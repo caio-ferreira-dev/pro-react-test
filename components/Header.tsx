@@ -1,27 +1,18 @@
 import styles from "@/styles/components/header.module.css";
 import SearchBar from "./ui/SearchBar";
-import UserMenu from "./ui/UserMenu";
-import { useEffect, useState } from "react";
-import CartButton from "./ui/CartButton";
+import UserMenu from "./ui/menus/UserMenu";
+import { useContext } from "react";
+import CartButton from "./ui/buttons/CartButton";
+import { DeviceWidthContext } from "../context/DeviceWidthContext";
 
 export default function Header() {
-    const [isMobile, setIsMobile] = useState<boolean>()
-    
-    useEffect(() => {
-        const handleResize = () => {
-          if (window.innerWidth < 769) {
-            setIsMobile(true)
-          } else {
-            setIsMobile(false)
-          }
-        };
+    const context = useContext(DeviceWidthContext)
 
-        window.addEventListener('resize', handleResize);
-    
-        return () => {
-          window.removeEventListener('resize', handleResize);
-        };
-      }, []);
+    if (!context) {
+      throw new Error('ExampleComponent must be used within a DeviceWidthProvider');
+    }
+
+    const { isMobile } = context
 
     function renderMobile() {
         return (
@@ -34,6 +25,7 @@ export default function Header() {
     }
 
     function renderDesktop() {
+        console.log(isMobile)
         return (
             <>
                 <h1 className={styles.projectTitle}>Pro - React Test</h1>

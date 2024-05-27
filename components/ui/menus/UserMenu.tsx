@@ -1,38 +1,30 @@
-import styles from "@/styles/components/ui/userMenu.module.css";
-import { useEffect, useRef, useState } from "react";
+import styles from "@/styles/components/ui/menus/userMenu.module.css";
+import { useContext, useEffect, useRef, useState } from "react";
 import DropdownMenu from "./DropdownMenu";
 import SideMenu from "./SideMenu";
+import { DeviceWidthContext } from "../../../context/DeviceWidthContext";
 
 export default function UserMenu() {
-    const [isMobile, setIsMobile] = useState<boolean>()
+    const context = useContext(DeviceWidthContext)
+    if (!context) {
+      throw new Error('ExampleComponent must be used within a DeviceWidthProvider');
+    }
+    const { isMobile } = context
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
     const dropdownRef = useRef<HTMLUListElement>(null)
     const userRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        function handleResize() {
-            if (window.innerWidth < 769) {
-                setIsMobile(true)
-            } else {
-                setIsMobile(false)
-            }
-        };
-
-        function handleClick(e: any) {
-            if(dropdownRef.current && !dropdownRef.current.contains(e.target) && userRef.current && !userRef.current.contains(e.target)) {
+        function handleClick(e: MouseEvent) {
+            if(dropdownRef.current && !dropdownRef.current.contains(e.target as Node) && userRef.current && !userRef.current.contains(e.target as Node)) {
                 setIsMenuOpen(false)
             }
         }
-
-        function removeEvents() {
-            window.removeEventListener('resize', handleResize);
-            document.removeEventListener("mousedown", handleClick)
-        }
-
-        window.addEventListener('resize', handleResize);
         document.addEventListener("mousedown", handleClick)
 
-        return removeEvents()
+        return () => {
+            document.removeEventListener("mousedown", handleClick)
+        }
       }, []);
 
     function renderDesktop() {

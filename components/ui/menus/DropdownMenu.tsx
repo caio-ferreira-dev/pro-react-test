@@ -1,4 +1,4 @@
-import styles from "@/styles/components/ui/dropdownMenu.module.css";
+import styles from "@/styles/components/ui/menus/dropdownMenu.module.css";
 import { forwardRef } from "react";
 
 interface DropdownMenuProps {

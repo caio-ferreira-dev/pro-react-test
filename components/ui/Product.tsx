@@ -1,5 +1,6 @@
 import styles from "@/styles/components/ui/product.module.css";
 import Image from "next/image";
+import AddToCartButton from "./buttons/addToCartButton";
 
 interface ProductProps {
     title: string
@@ -35,10 +36,7 @@ export default function Product({title, price, rating, image}: ProductProps) {
                     <p className={styles.count}>{rating.count}</p>
                 </div>
             </div>
-            <button className={styles.addToCart}>
-                <img src="add_icon.png" alt="add icon" width={24} height={24}/>
-                <img src="cart_white.png" alt="cart icon" width={32} height={32}/>
-            </button>
+            <AddToCartButton />
         </div>
     )
 }

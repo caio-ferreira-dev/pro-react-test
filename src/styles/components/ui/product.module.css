@@ -1,5 +1,6 @@
 .productContainer {
     width: 750px;
+    max-width: 100vw;
     height: 250px;
     background-color: #FFFFFF;
     padding: 25px;
@@ -37,15 +38,6 @@
 
 .count {
     font-size: 14px;
-}
-
-.addToCart {
-    position: absolute;
-    bottom: 25px;
-    right: 25px;
-    width: 100px;
-    height: 50px;
-    background-color: #02DFB2;
 }
 
 .imageWrapper {

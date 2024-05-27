@@ -1,4 +1,4 @@
-import styles from "@/styles/components/ui/sideMenu.module.css";
+import styles from "@/styles/components/ui/menus/sideMenu.module.css";
 
 interface SideMenuProps {
     isOpen: boolean
