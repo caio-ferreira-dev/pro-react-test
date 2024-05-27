@@ -54,17 +54,20 @@
 }
 
 .productImage {
-    height: 150px;
+    height: auto;
     width: auto;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 @media only screen and (max-width: 425px) {
     .productContainer {
         height: 150px;
+        padding: 0 5px;
     }
 
     .productInfos {
-        width: 200px;
+        width: 150px !important;
     }
 
     .price {
@@ -90,13 +93,17 @@
     }
 
     .productImage {
-        height: 110px;
-        width: auto;
+        max-width: 110px;
+        max-height: 110px;
     }
 }
 
 @media only screen and (max-width: 768px) {
     .productContainer {
         width: 100vw;
+    }
+
+    .productInfos {
+        width: 400px;
     }
 }
