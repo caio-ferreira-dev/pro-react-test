@@ -6,3 +6,31 @@
     height: 50px;
     background-color: #02DFB2;
 }
+
+.addIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.cartIcon {
+    width: 32px;
+    height: 32px;
+}
+
+@media only screen and (max-width: 425px) {
+    .addToCart {
+        width: 75px;
+        height: 37.5px;
+    }
+
+    .addIcon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .cartIcon {
+        width: 24px;
+        height: 24px;
+    }
+}
+

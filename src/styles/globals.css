@@ -33,4 +33,12 @@ button:hover {
     cursor: pointer;
 }
 
+
+@media only screen and (max-width: 425px) {
+    h2 {
+        font-size: 10px;
+    }
+}
+
+
 /* D8DFE9 */
