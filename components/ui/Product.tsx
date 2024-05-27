@@ -1,4 +1,5 @@
 import styles from "@/styles/components/ui/product.module.css";
+import Image from "next/image";
 
 interface ProductProps {
     title: string
@@ -21,10 +22,12 @@ export default function Product({title, price, rating, image}: ProductProps) {
 
     return (
         <div className={styles.productContainer}>
-            <img src={image} alt="product image" />
+            <div className={styles.imageWrapper}>
+                <Image className={styles.productImage} src={image} alt="product image" layout="fill" objectFit="contain"></Image>
+            </div>
             <div className={styles.productInfos}>
                 <h2>{title}</h2>
-                <p className={styles.price}>$ {price}</p>
+                <p className={styles.price}>$ {price.toFixed(2)}</p>
                 <div className={styles.rating}>
                     <div className={styles.stars}>
                         {renderRate(rating.rate)}
