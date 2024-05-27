@@ -24,13 +24,15 @@ export default function UserMenu() {
             }
         }
 
+        function removeEvents() {
+            window.removeEventListener('resize', handleResize);
+            document.removeEventListener("mousedown", handleClick)
+        }
+
         window.addEventListener('resize', handleResize);
         document.addEventListener("mousedown", handleClick)
 
-        return () => {
-            window.removeEventListener('resize', handleResize);
-            document.removeEventListener("mousedown", handleClick)
-        };
+        return removeEvents()
       }, []);
 
     function renderDesktop() {

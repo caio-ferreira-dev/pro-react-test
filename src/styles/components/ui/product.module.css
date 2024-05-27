@@ -1,0 +1,47 @@
+.productContainer {
+    width: 750px;
+    height: 200px;
+    background-color: #FFFFFF;
+    padding: 25px;
+
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+
+.productInfos {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    gap: 3px;
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+}
+
+.count {
+    font-size: 14px;
+}
+
+.addToCart {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    width: 100px;
+    height: 50px;
+    background-color: #02DFB2;
+}
