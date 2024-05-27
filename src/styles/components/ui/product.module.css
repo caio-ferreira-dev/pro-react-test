@@ -41,9 +41,12 @@
 }
 
 .imageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     height: 150px;
     width: 150px;
-    position: relative;
 }
 
 .productImage {
