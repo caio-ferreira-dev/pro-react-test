@@ -1,30 +1,14 @@
 import styles from "@/styles/components/ui/dropdownMenu.module.css";
-import { useEffect, useRef } from "react";
+import { forwardRef } from "react";
 
 interface DropdownMenuProps {
     isOpen: boolean
-    setIsMenuOpen: Function
 }
 
-export default function DropdownMenu({ isOpen, setIsMenuOpen }: DropdownMenuProps) {
-    const dropdownRef = useRef<HTMLUListElement>(null)
-
-    useEffect(() => {
-        function handleClick(e: any) {
-            if(dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-                setIsMenuOpen(false)
-            }
-        }
-
-        document.addEventListener("mousedown", handleClick)
-        return () => {
-            document.removeEventListener("mousedown", handleClick)
-          }
-    }, []) 
-
+function DropdownComponent({ isOpen }: DropdownMenuProps, ref: React.LegacyRef<HTMLUListElement>) {
     return (
         <>
-            <ul className={`${styles.dropdownContainer} ${isOpen ? styles.showMenu : styles.hideMenu}`} ref={dropdownRef}>
+            <ul className={`${styles.dropdownContainer} ${isOpen ? styles.showMenu : styles.hideMenu}`} ref={ref}>
                 <li>
                     Gerenciar produtos
                 </li>
@@ -36,3 +20,6 @@ export default function DropdownMenu({ isOpen, setIsMenuOpen }: DropdownMenuProp
         </>
     )
 }
+
+const DropdownMenu = forwardRef(DropdownComponent)
+export default DropdownMenu
