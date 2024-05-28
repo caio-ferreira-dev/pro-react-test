@@ -1,6 +1,7 @@
 .cartListContainer {
     height: 350px;
     overflow-y: scroll;
+    z-index: 10;
 }
 
 .cartProductContainer {
@@ -50,4 +51,20 @@
 
 .productPrice {
     width: 60px;
+}
+
+@media only screen and (max-width: 768px) {
+    .cartProductContainer {
+        width: 100vw;
+    }
+
+    .cartListContainer {
+        padding-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .productFont {
+        font-size: 12px;
+    }
 }

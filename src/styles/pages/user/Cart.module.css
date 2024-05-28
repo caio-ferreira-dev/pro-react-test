@@ -48,3 +48,15 @@
     color: #FFFFFF;
     background-color: #02DFB2;
 }
+
+@media only screen and (max-width: 768px) {
+    .contentContainer {
+        flex-direction: column;
+        align-items: center ;
+        padding-top: 160px;
+    }
+
+    .productsWrapper {
+        width: 100%;
+    }
+}
