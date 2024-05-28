@@ -1,9 +1,10 @@
 type Product = {
-    title: string
-    price: number
+    title: string;
+    price: number;
     rating: {
-        rate: number,
-        count: number
-    }
-    image: string
-}
+        rate: number;
+        count: number;
+    };
+    image: string;
+    category: string;
+};

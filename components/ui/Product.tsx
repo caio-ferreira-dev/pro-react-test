@@ -1,5 +1,4 @@
 import styles from "@/styles/components/ui/product.module.css";
-import Image from "next/image";
 import AddToCartButton from "./buttons/addToCartButton";
 import { useContext } from "react";
 import { DeviceWidthContext } from "../../context/DeviceWidthContext";
