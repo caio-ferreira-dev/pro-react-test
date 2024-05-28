@@ -1,4 +1,4 @@
-import styles from "@/styles/components/categoryList.module.css";
+import styles from "@/styles/components/ui/lists/categoryList.module.css";
 
 interface CategoryListProps {
     products: Product[]

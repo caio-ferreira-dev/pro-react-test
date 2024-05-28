@@ -25,7 +25,6 @@ export default function Header() {
     }
 
     function renderDesktop() {
-        console.log(isMobile)
         return (
             <>
                 <h1 className={styles.projectTitle}>Pro - React Test</h1>

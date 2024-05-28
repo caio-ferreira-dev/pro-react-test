@@ -1,8 +1,8 @@
 import Head from "next/head";
 import styles from "@/styles/pages/Search.module.css";
 import Header from "../../components/Header";
-import ProductsList from "../../components/ProductsList";
-import CategoryList from "../../components/CategoryList";
+import ProductsList from "../../components/ui/lists/ProductsList";
+import CategoryList from "../../components/ui/lists/CategoryList";
 
 const productsArray: Product[] = [
     {

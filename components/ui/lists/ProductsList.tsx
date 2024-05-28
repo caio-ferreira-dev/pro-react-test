@@ -1,5 +1,5 @@
-import styles from "@/styles/components/productsList.module.css";
-import Product from "./ui/Product";
+import styles from "@/styles/components/ui/lists/productsList.module.css";
+import Product from "../Product";
 
 interface ProductsListProps {
     products: Product[]
