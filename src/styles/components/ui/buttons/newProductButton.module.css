@@ -1,0 +1,17 @@
+.addButtonImage {
+    height: 24px;
+    width: auto;
+}
+
+.addFont {
+    font-size: 20px;
+}
+
+.newProductContainer {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #FFFFFF;
+}

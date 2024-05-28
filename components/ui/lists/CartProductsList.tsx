@@ -1,6 +1,6 @@
 import styles from "@/styles/components/ui/lists/cartProductsList.module.css";
 import QuantityButton from "../buttons/quantityButton";
-import DeleteButton from "../buttons/deleteButton";
+import RemoveButton from "../buttons/removeButton";
 
 interface CartProductsListProps {
     products: Product[]
@@ -21,7 +21,7 @@ export default function CartProductsList({ products }: CartProductsListProps) {
                     <QuantityButton functionality="increase" />
                 </div>
                 <p className={`${styles.productFont} ${styles.productPrice}`}>$ {product.price.toFixed(2)}</p>
-                <DeleteButton />
+                <RemoveButton />
             </li>
         }) 
     }

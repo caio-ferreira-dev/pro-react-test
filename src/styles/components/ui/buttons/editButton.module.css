@@ -1,0 +1,11 @@
+.editIcon {
+    width: 28px;
+    height: 28px;
+}
+
+@media only screen and (max-width: 425px) {
+    .editIcon {
+        width: 20px;;
+        height: 20px;
+    }
+}

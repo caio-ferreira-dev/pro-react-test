@@ -60,6 +60,16 @@
     max-height: 150px;
 }
 
+.modifyDiv {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 @media only screen and (max-width: 425px) {
     .productContainer {
         height: 150px;
@@ -95,6 +105,10 @@
     .productImage {
         max-width: 110px;
         max-height: 110px;
+    }
+
+    .modifyDiv {
+        width: 75px;
     }
 }
 
