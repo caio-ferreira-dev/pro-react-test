@@ -1,0 +1,19 @@
+.contentContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    padding-top: 100px;
+}
+
+.productsWrapper, .totalWrapper {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.totalWrapper {
+    flex-direction: column;
+    gap: 30px;
+}

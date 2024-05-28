@@ -32,7 +32,7 @@ export default function UserMenu() {
             <>
                 <h1>#User</h1>
                 <button onClick={e => {setIsMenuOpen(!isMenuOpen)}}>
-                    <img className={`${styles.dropdownArrow} ${isMenuOpen ? styles.rotateIcon : ''}`} src="dropdown_arrow.png" alt="dropdown arrow" width={40} height={40}/>
+                    <img className={`${styles.dropdownArrow} ${isMenuOpen ? styles.rotateIcon : ''}`} src="/dropdown_arrow.png" alt="dropdown arrow" width={40} height={40}/>
                 </button>
                 <DropdownMenu isOpen={isMenuOpen} ref={dropdownRef}/>
                 
@@ -44,7 +44,7 @@ export default function UserMenu() {
         return (
             <>
                 <button onClick={e => {setIsMenuOpen(!isMenuOpen)}}>
-                    <img src="mobile_menu_icon.png" alt="menu icon" width={50} height={50}/>
+                    <img src="/mobile_menu_icon.png" alt="menu icon" width={50} height={50}/>
                 </button>
                 <SideMenu isOpen={isMenuOpen} />
             </>

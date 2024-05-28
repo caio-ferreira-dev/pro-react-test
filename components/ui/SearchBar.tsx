@@ -5,7 +5,7 @@ export default function SearchBar() {
         <div className={styles.searchContainer} >
             <input type="text" className={styles.searchInput} placeholder="Pesquisar produto..."/>
             <button className={styles.searchButton}>
-                <img src="magnifying_glass.png" alt="magnifying glass search icon" />
+                <img src="/magnifying_glass.png" alt="magnifying glass search icon" />
             </button>
         </div>
     )

@@ -12,8 +12,17 @@ export default function CartPage() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
-            <main className={``}>
-            
+            <main className={styles.contentContainer}>
+                <div className={styles.productsWrapper}>
+
+                </div>
+                <div className={styles.totalWrapper}>
+                    <div className={styles.totalContainer}>
+                        <h1>Total</h1>
+                        <p className={styles.totalFont}></p>
+                    </div>
+                    <button className={styles.buyButton}>Finalizar compra</button>
+                </div>
             </main>
         </>
     )
