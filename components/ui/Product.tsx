@@ -6,25 +6,13 @@ import EditButton from "./buttons/editButton";
 import DeleteButton from "./buttons/deleteButton";
 
 interface ProductProps {
-    title: string
-    price: number
-    rating: {
-        rate: number,
-        count: number
-    }
-    image: string
+    product: Product
     issuer: 'client' | 'user'
 }
 
-export default function Product({title, price, rating, image, issuer}: ProductProps) {
-    const context = useContext(DeviceWidthContext)
-
-    if (!context) {
-      throw new Error('ExampleComponent must be used within a DeviceWidthProvider');
-    }
-
-    const { isMobile } = context
-
+export default function Product({product, issuer}: ProductProps) {
+    const { id, title, price, rating, image } = product
+    
     function renderRate(starRating: number) {
         let starsArray = [1, 2, 3, 4, 5]
         return starsArray.map((star, index) => {
@@ -50,8 +38,8 @@ export default function Product({title, price, rating, image, issuer}: ProductPr
     function renderEditDiv() {
         return (
             <div className={styles.modifyDiv}>
-                <EditButton />
-                <DeleteButton />
+                <EditButton productInfo={product}/>
+                <DeleteButton productId={id} />
             </div>
         )
     }
@@ -66,7 +54,7 @@ export default function Product({title, price, rating, image, issuer}: ProductPr
                 <p className={styles.price}>$ {price.toFixed(2)}</p>
                 { issuer === 'client' && renderRatingDiv() }
             </div>
-            { issuer === 'client' ? <AddToCartButton /> : renderEditDiv()}
+            { issuer === 'client' ? <AddToCartButton productId={id} /> : renderEditDiv()}
         </div>
     )
 }

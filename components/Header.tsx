@@ -5,7 +5,11 @@ import { useContext } from "react";
 import CartButton from "./ui/buttons/CartButton";
 import { DeviceWidthContext } from "../context/DeviceWidthContext";
 
-export default function Header() {
+interface HeaderProps {
+    issuer: 'client' | 'user',
+}
+
+export default function Header({ issuer }: HeaderProps) {
     const context = useContext(DeviceWidthContext)
 
     if (!context) {
@@ -18,7 +22,7 @@ export default function Header() {
         return (
             <>
                 <UserMenu />
-                <SearchBar />
+                <SearchBar issuer={issuer}/>
                 <CartButton />
             </>
         )
@@ -28,7 +32,7 @@ export default function Header() {
         return (
             <>
                 <h1 className={styles.projectTitle}>Pro - React Test</h1>
-                <SearchBar />
+                <SearchBar issuer={issuer}/>
                 <CartButton />
                 <UserMenu />
             </>

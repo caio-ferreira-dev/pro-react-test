@@ -1,4 +1,5 @@
 type Product = {
+    id: number;
     title: string;
     price: number;
     rating: {
@@ -7,4 +8,5 @@ type Product = {
     };
     image: string;
     category: string;
+    description: string;
 };

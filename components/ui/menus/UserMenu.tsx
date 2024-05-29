@@ -3,14 +3,25 @@ import { useContext, useEffect, useRef, useState } from "react";
 import DropdownMenu from "./DropdownMenu";
 import SideMenu from "./SideMenu";
 import { DeviceWidthContext } from "../../../context/DeviceWidthContext";
+import { useUser } from "../../../context/UserContext";
+import { useRouter } from "next/router";
 
 export default function UserMenu() {
+    // Context
     const context = useContext(DeviceWidthContext)
     if (!context) {
       throw new Error('ExampleComponent must be used within a DeviceWidthProvider');
     }
     const { isMobile } = context
+    const { user } = useUser()
+
+    // Router
+    const router = useRouter()
+
+    // DropdownMenu control
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+
+    // Refs
     const dropdownRef = useRef<HTMLUListElement>(null)
     const userRef = useRef<HTMLDivElement>(null)
 
@@ -27,15 +38,40 @@ export default function UserMenu() {
         }
       }, []);
 
-    function renderDesktop() {
+    function renderDropdown() {
         return (
             <>
-                <h1>#User</h1>
                 <button onClick={e => {setIsMenuOpen(!isMenuOpen)}}>
                     <img className={`${styles.dropdownArrow} ${isMenuOpen ? styles.rotateIcon : ''}`} src="/dropdown_arrow.png" alt="dropdown arrow" width={40} height={40}/>
                 </button>
-                <DropdownMenu isOpen={isMenuOpen} ref={dropdownRef}/>
-                
+                <DropdownMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} ref={dropdownRef}/>
+            </>
+        )
+    }
+
+    function handleRedirect() {
+        router.push('/user/login')
+    }
+
+    function renderLoginButton() {
+        return (
+            <button onClick={handleRedirect}>
+                <h1 className={styles.fontWhite}>{user.token === null ? 'Fazer login' : user.username}</h1>
+            </button>
+        )  
+    }
+
+    function renderUserName() {
+        return (
+            <h1 className={styles.fontWhite}>{user.token === null ? 'Fazer login' : user.username}</h1>
+        )
+    }
+
+    function renderDesktop() {
+        return (
+            <>
+                {user.token !== null ? renderUserName() : renderLoginButton() }
+                {user.token && renderDropdown()}
             </>
         )
     }
@@ -46,7 +82,7 @@ export default function UserMenu() {
                 <button onClick={e => {setIsMenuOpen(!isMenuOpen)}}>
                     <img src="/mobile_menu_icon.png" alt="menu icon" width={50} height={50}/>
                 </button>
-                <SideMenu isOpen={isMenuOpen} />
+                <SideMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
             </>
         )
     }

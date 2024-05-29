@@ -1,21 +1,45 @@
 import styles from "@/styles/components/ui/lists/productsList.module.css";
 import Product from "../Product";
+import { useSearchData } from "../../../hooks/useSearchData";
+import { useRouter } from "next/router";
 
 interface ProductsListProps {
-    products: Product[]
     issuer: 'client' | 'user'
 }
 
-export default function ProductsList({ products, issuer }: ProductsListProps) {
+export default function ProductsList({ issuer }: ProductsListProps) {
+    const { data } = useSearchData();
+    const router = useRouter();
+    const { title, category } = router.query;
+
+    function filterByTitle(productsArray: Product[]) {
+        if(title === undefined) {
+            return productsArray
+        } else {
+            const filteredProducts = productsArray.filter(product => product.title.toLowerCase().includes(`${title}`.toLowerCase()))
+            return filteredProducts  
+        }        
+    }
+
+    function filterByCategory(productsArray: Product[]) {
+        if(category === undefined) {
+            return productsArray
+        } else {
+            const filteredProducts = productsArray.filter(product => product.category.toLowerCase() === `${category}`.toLowerCase())
+            return filteredProducts
+        }        
+    }
+
     function renderProducts(productsArray: Product[]) {
-        return productsArray.map((product, index) => {
-            return <Product key={index} title={product.title} price={product.price} image={product.image} rating={product.rating} issuer={issuer}/>
+        const filteredArray = filterByCategory(filterByTitle(productsArray))
+        return filteredArray.map((product, index) => {
+            return <Product key={index} product={product} issuer={issuer} />
         })
     }
 
     return (
         <div className={styles.listContainer}>
-           {renderProducts(products)}
+           {data?.productsData && renderProducts(data?.productsData)}
         </div>
     )
 }

@@ -13,6 +13,10 @@
     transform: rotate(180deg);
 }
 
+.fontWhite {
+    color: #FFFFFF
+}
+
 @media only screen and (max-width: 769px) {
     .userMenuContainer {
         position: unset;
