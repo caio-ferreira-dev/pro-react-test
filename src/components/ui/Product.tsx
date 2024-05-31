@@ -1,7 +1,5 @@
 import styles from "@/styles/components/ui/product.module.css";
 import AddToCartButton from "./buttons/addToCartButton";
-import { useContext } from "react";
-import { DeviceWidthContext } from "../../context/DeviceWidthContext";
 import EditButton from "./buttons/editButton";
 import DeleteButton from "./buttons/deleteButton";
 
@@ -13,6 +11,7 @@ interface ProductProps {
 export default function Product({product, issuer}: ProductProps) {
     const { id, title, price, rating, image } = product
     
+    // Star ratings function
     function renderRate(starRating: number) {
         let starsArray = [1, 2, 3, 4, 5]
         return starsArray.map((star, index) => {
@@ -24,6 +23,7 @@ export default function Product({product, issuer}: ProductProps) {
         })
     }
 
+    // Ratings div function
     function renderRatingDiv() {
         return (
             <div className={styles.ratingContainer}>
@@ -35,6 +35,7 @@ export default function Product({product, issuer}: ProductProps) {
         )
     }
 
+    // Edit/Delete button render function
     function renderEditDiv() {
         return (
             <div className={styles.modifyDiv}>

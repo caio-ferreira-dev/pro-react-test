@@ -1,4 +1,4 @@
-import AuthForm from "../../../components/ui/AuthForm";
+import AuthForm from "../../components/ui/AuthForm";
 import styles from "@/styles/pages/user/Login.module.css";
 
 export default function Login() {

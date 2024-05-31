@@ -7,20 +7,25 @@ interface SearchBarProps {
 }
 
 export default function SearchBar({ issuer }: SearchBarProps) {
+    // PageRouter
     const router = useRouter();
-    const { title } = router.query;
+
+    // SearchInput state
     const [searchInput, setSearchInput] = useState('')
     
+    // SearchInput change
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         setSearchInput(e.target.value)
     }
 
+    // Allow to search with "Enter" key
     function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
         if(e.key === 'Enter') {
             handleRouting()
         }
     }
 
+    // PageRouting function
     function handleRouting() {
         if(issuer === "client") {
             if(searchInput.length == 0) {

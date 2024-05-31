@@ -2,7 +2,6 @@ import styles from "@/styles/components/ui/buttons/deleteButton.module.css"
 import axiosInstance from "../../../libs/axiosInstance"
 import { useState } from "react"
 import DeletedProductMessage from "../modal/deletedProductMessage"
-import { useQueryClient } from "@tanstack/react-query"
 
 interface DeleteButtonProps {
     productId: number

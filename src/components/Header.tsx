@@ -10,6 +10,7 @@ interface HeaderProps {
 }
 
 export default function Header({ issuer }: HeaderProps) {
+    // DeviceWidth Context
     const context = useContext(DeviceWidthContext)
 
     if (!context) {
@@ -18,6 +19,8 @@ export default function Header({ issuer }: HeaderProps) {
 
     const { isMobile } = context
 
+
+    // Render functions
     function renderMobile() {
         return (
             <>

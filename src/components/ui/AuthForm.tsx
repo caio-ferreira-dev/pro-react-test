@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from 'next/router';
 import { useUser } from "../../context/UserContext";
 import styles from "@/styles/components/ui/authForm.module.css";
@@ -12,12 +11,19 @@ interface FormProps {
 }
 
 export default function AuthForm({inputNames, page }: FormProps) {
+    // React form
     const { register, handleSubmit } = useForm()
+
+    // UserInfos context
     const { dispatch } = useUser()
+
+    // PageRouter
     const router = useRouter()
 
+    // Errors state
     const [reqError, setReqError] = useState('')
     
+    // Render function
     function renderInputs(inputsList: string[]) {
         return inputsList.map((fieldName, index) => {
             let inputType = 'text';
@@ -34,6 +40,7 @@ export default function AuthForm({inputNames, page }: FormProps) {
         })
     }
 
+    // Request handler function
     async function handleRequest(formData: any) {
         if(page === 'Login') {
             try {

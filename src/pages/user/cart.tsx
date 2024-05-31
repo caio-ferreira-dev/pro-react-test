@@ -1,27 +1,28 @@
 import Head from "next/head";
 import styles from "@/styles/pages/user/Cart.module.css";
-import Header from "../../../components/Header";
-import CartProductsList from "../../../components/ui/lists/CartProductsList";
-import { useCartData } from "../../../hooks/useCart";
+import Header from "../../components/Header";
+import CartProductsList from "../../components/ui/lists/CartProductsList";
+import { useCartData } from "../../hooks/useCart";
 import { useEffect, useState } from "react";
-import { useUser } from "../../../context/UserContext";
+import { useUser } from "../../context/UserContext";
 import { useRouter } from "next/router";
-import ConfirmBuyModal from "../../../components/ui/modal/confirmBuyModal";
+import ConfirmBuyModal from "../../components/ui/modal/confirmBuyModal";
+import calcTotalPrice from "@/functions/calcTotalPrice";
 
 export default function CartPage() {
+    // Getting data from the '/carts/5' fakestoreapi endpoint
     const { data } = useCartData();
+
+    // UserInfo Context
     const { user } = useUser();
+
+    // Router
     const router = useRouter();
+
+    // ConfirmBuy message modal state
     const [showBuyMessage, setBuyMessage] = useState<boolean>(false)
  
-    function calcTotal() {
-        let total: number = 0
-        data?.productsData.map((product) => {
-            total += product.price
-        })
-        return total.toFixed(2)
-    }
-
+     // Token check
     useEffect(() => {
         if(user.token === null) {
             router.push('/user/login')
@@ -51,7 +52,7 @@ export default function CartPage() {
                 <div className={styles.totalWrapper}>
                     <div className={styles.totalContainer}>
                         <h1>Total</h1>
-                        <p className={styles.totalFont}>$ {calcTotal()}</p>
+                        <p className={styles.totalFont}>$ {calcTotalPrice(data)}</p>
                     </div>
                     <button className={styles.buyButton} onClick={handleBuyConfirm}>Finalizar compra</button>
                     <ConfirmBuyModal show={showBuyMessage} />

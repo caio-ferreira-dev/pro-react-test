@@ -1,4 +1,3 @@
-
 import { createPortal } from 'react-dom';
 import styles from '@/styles/components/ui/modal/messageModal.module.css'
 
