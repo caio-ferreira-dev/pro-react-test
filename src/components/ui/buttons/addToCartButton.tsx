@@ -2,7 +2,7 @@ import styles from "@/styles/components/ui/buttons/addToCartButton.module.css";
 import axiosInstance from "../../../libs/axiosInstance";
 import { useUser } from "../../../context/UserContext";
 import { useRouter } from "next/router";
-import AddedProductModal from "../modal/addedProductModal";
+import AddedProductModal from "../modal/addedProductMessage";
 import { useState } from "react";
 
 interface AddToCartButtonProps {

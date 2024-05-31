@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom';
 import styles from '@/styles/components/ui/modal/messageModal.module.css'
 
-const AddedProductModal: React.FC<{ show: boolean }> = ({ show }) => {
+const AddedProductMessage: React.FC<{ show: boolean }> = ({ show }) => {
   if (!show) return null;
 
   return createPortal(
@@ -12,4 +12,4 @@ const AddedProductModal: React.FC<{ show: boolean }> = ({ show }) => {
   );
 };
 
-export default AddedProductModal;
+export default AddedProductMessage;

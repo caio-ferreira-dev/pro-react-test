@@ -35,7 +35,7 @@ export default function Header({ issuer }: HeaderProps) {
         return (
             <>
                 <h1 className={styles.projectTitle}>Pro - React Test</h1>
-                <SearchBar issuer={issuer}/>
+                {issuer === "client" && <SearchBar issuer={issuer}/> }
                 <CartButton />
                 <UserMenu />
             </>

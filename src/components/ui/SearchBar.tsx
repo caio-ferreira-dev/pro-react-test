@@ -35,7 +35,7 @@ export default function SearchBar({ issuer }: SearchBarProps) {
             }
         }
         if(issuer === "user") {
-            router.push(`/user/product?title=${searchInput}`)
+            router.push(`/user/products?title=${searchInput}`)
         }
     }
    
